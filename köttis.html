@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Torkat Kött</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center/cover;
+      color: #2f2f2f;
+    }
+    nav {
+      background-color: rgba(139, 69, 19, 0.9);
+      padding: 1em;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 5em 2em;
+      background-color: rgba(255,255,255,0.8);
+    }
+    section {
+      padding: 2em;
+      background-color: rgba(255,255,255,0.9);
+      margin: 1em;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 1em;
+      background-color: #f5f5f5;
+    }
+    .product button {
+      margin-top: 0.5em;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 0.5em;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: rgba(139, 69, 19, 0.9);
+      color: white;
+    }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 1em;
+      padding: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home">Hem</a>
+    <a href="#about">Om Oss</a>
+    <a href="#products">Produkter</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+
+  <div id="home" class="hero">
+    <h1>Välkommen till Torkat Kött</h1>
+    <p>Premium torkat kött från svensk natur</p>
+    <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">Scroll to top</button>
+  </div>
+
+  <section id="about">
+    <h2>Om Oss</h2>
+    <p>Vi är ett svenskt företag som fokuserar på kvalitet, hållbarhet och tradition när vi tillverkar vårt torkade kött. Med naturliga ingredienser och hantverksmässiga metoder levererar vi produkter du kan lita på.</p>
+  </section>
+
+  <section id="products">
+    <h2>Produkter</h2>
+    <div class="products">
+      <div class="product">
+        <img src="jerky1.jpg" alt="Original Jerky" width="100%">
+        <h3>Original Jerky</h3>
+        <p>Klassisk torkat kött med rik smak. 89 kr</p>
+        <button>Lägg i varukorg</button>
+      </div>
+      <div class="product">
+        <img src="jerky2.jpg" alt="Spicy Jerky" width="100%">
+        <h3>Spicy Jerky</h3>
+        <p>Med lite hetta för äventyrliga smaklökar. 95 kr</p>
+        <button>Lägg i varukorg</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakta Oss</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="name" placeholder="Namn" required />
+      <input type="email" id="email" placeholder="E-post" required />
+      <textarea id="message" placeholder="Meddelande" rows="5" required></textarea>
+      <button type="submit">Skicka</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Kontakta oss: info@torkatkott.se | Tel: 070-123 45 67</p>
+    <p>Följ oss på Instagram & Facebook</p>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert('Alla fält måste fyllas i.');
+        return false;
+      }
+      alert('Tack för ditt meddelande!');
+      return true;
+    }
+  </script>
+</body>
+</html>
